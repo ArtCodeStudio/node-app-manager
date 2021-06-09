@@ -1,5 +1,6 @@
 {
   "name": "@node-app-manager/example-manager",
+  "private": true,
   "scripts": {
     "start": "node-app-manager --configDir example/manager/config --env development",
     "start:prod": "node-app-manager --configDir example/manager/config -- env production"
