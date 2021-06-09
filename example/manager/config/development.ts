@@ -17,14 +17,14 @@ export const redbird: RedbirdOptions = {
 
 export const apps: ManagerApp[] = [
   {
-    pkgName: "@node-app-manager/example",
+    pkgName: "@node-app-manager/example-app",
     domain: "example.localhost",
     target: {
       // This port will also be the set as env.PORT in pm2
       port: 3001,
     },
     pm2: {
-      script: "yarn workspace @node-app-manager/example watch",
+      script: "yarn workspace @node-app-manager/example-app run watch",
       // The app restarts by itself on changes but this is not working fpr new packages, so we also watch the package.json with pm2
       watch: ["package.json", "./.pnp.js"],
       env: {

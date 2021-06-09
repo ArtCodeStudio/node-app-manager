@@ -45,13 +45,13 @@ export const redbird: RedbirdOptions = {
 
 export const apps: ManagerApp[] = [
   {
-    pkgName: "@node-app-manager/example",
+    pkgName: "@node-app-manager/example-app",
     domain: "example.artandcode.de",
     target: {
       port: 3001,
     },
     pm2: {
-      script: "yarn workspace @node-app-manager/example start",
+      script: "yarn workspace @node-app-manager/example-app run start",
       env: {
         MESSAGE:
           "App managed by @artcodestudio/node-app-manager in production mode",

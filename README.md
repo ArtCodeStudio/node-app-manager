@@ -6,12 +6,14 @@ Manage your Node.js applications
 Start the example with:
 
 ```sh
+cd example/manager
 yarn run start # or start:prod
 ```
 
 or to start the app manager itself also with PM2:
 
 ```sh
+cd example/manager
 pm2 start ./pm2.example.config.js # or ./pm2.example-prod.config .js
 ```
 

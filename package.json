@@ -5,9 +5,7 @@
   "author": "Art+Code Studio (Pascal Garber) <pascal@artandcode.studio>",
   "license": "AGPL",
   "scripts": {
-    "build": "yarn workspaces foreach run build",
-    "start": "NODE_ENV=development node-app-manager",
-    "start:prod": "NODE_ENV=production node-app-manager"
+    "build": "yarn workspaces foreach run build"
   },
   "devDependencies": {
     "@yarnpkg/pnpify": "^3.0.0-rc.6",
@@ -15,7 +13,7 @@
   },
   "workspaces": [
     "backend",
-    "example",
+    "example/*",
     "packages/redbird",
     "packages/riba/packages/*",
     "packages/riba/backend/*",
@@ -25,7 +23,6 @@
     "!packages/riba/infra/schematics"
   ],
   "dependencies": {
-    "@artcodestudio/node-app-manager": "workspace:backend",
     "@ribajs/eslint-config": "workspace:packages/riba/infra/eslint-config",
     "@types/node": "^15.12.2",
     "@typescript-eslint/eslint-plugin": "^4.26.1",

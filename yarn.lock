@@ -109,6 +109,7 @@ __metadata:
     "@types/node": ^15.12.1
     "@types/supertest": ^2.0.11
     "@types/yaml": ^1.9.7
+    "@types/yargs": ^17.0.0
     "@typescript-eslint/eslint-plugin": ^4.26.0
     "@typescript-eslint/parser": ^4.26.0
     acme-http-01-webroot: ^3.0.0
@@ -134,6 +135,7 @@ __metadata:
     tsconfig-paths: ^3.9.0
     typescript: ^4.3.2
     yaml: ^1.10.2
+    yargs: ^17.0.1
   bin:
     node-app-manager: ./bin/run
   languageName: unknown
@@ -2543,17 +2545,24 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@node-app-manager/example@workspace:example":
+"@node-app-manager/example-app@workspace:example/app":
   version: 0.0.0-use.local
-  resolution: "@node-app-manager/example@workspace:example"
+  resolution: "@node-app-manager/example-app@workspace:example/app"
   dependencies:
-    "@artcodestudio/node-app-manager": "workspace:backend"
     "@types/express": ^4.17.12
     "@types/node": ^15.12.2
     express: ^4.17.1
     node-dev: ^7.0.0
     ts-node: ^10.0.0
     typescript: ^4.3.2
+  languageName: unknown
+  linkType: soft
+
+"@node-app-manager/example-manager@workspace:example/manager":
+  version: 0.0.0-use.local
+  resolution: "@node-app-manager/example-manager@workspace:example/manager"
+  dependencies:
+    "@artcodestudio/node-app-manager": "workspace:backend"
   languageName: unknown
   linkType: soft
 
@@ -5332,6 +5341,15 @@ __metadata:
   dependencies:
     "@types/yargs-parser": "*"
   checksum: 84b8f617742b4a86f334838152cbc8d2fae4cc2568a81c4d54a9a9c7a6dc926f4fb21c3cb9d34cad895ab4f020041e28bcfe16348a34d370a2833450750ccd66
+  languageName: node
+  linkType: hard
+
+"@types/yargs@npm:^17.0.0":
+  version: 17.0.0
+  resolution: "@types/yargs@npm:17.0.0"
+  dependencies:
+    "@types/yargs-parser": "*"
+  checksum: 92ea97fa209768b993d1a06b9f2453161fc7fc3b25211d1235d112bc960e57b180c0b8616eb10c3e89b5d1bc6add255b0b10e550165ee318560bc0531dfe13b3
   languageName: node
   linkType: hard
 
@@ -15439,7 +15457,6 @@ fsevents@^1.2.7:
   version: 0.0.0-use.local
   resolution: "node-app-manager@workspace:."
   dependencies:
-    "@artcodestudio/node-app-manager": "workspace:backend"
     "@ribajs/eslint-config": "workspace:packages/riba/infra/eslint-config"
     "@types/node": ^15.12.2
     "@typescript-eslint/eslint-plugin": ^4.26.1

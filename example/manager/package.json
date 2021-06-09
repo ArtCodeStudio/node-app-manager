@@ -1,0 +1,10 @@
+{
+  "name": "@node-app-manager/example-manager",
+  "scripts": {
+    "start": "node-app-manager --configDir example/manager/config --env development",
+    "start:prod": "node-app-manager --configDir example/manager/config -- env production"
+  },
+  "dependencies": {
+    "@artcodestudio/node-app-manager": "workspace:backend"
+  }
+}

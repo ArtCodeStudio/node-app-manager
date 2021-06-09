@@ -69,7 +69,6 @@ const loadPkgData = (apps: ManagerApp[]) => {
   const wsDirs = getWorkspaceDirs();
   for (let wsDir of wsDirs) {
     wsDir = resolve(appRoot.path, wsDir);
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
     if (!existsSync(wsDir)) {
       log.warn('Directory not found! ' + wsDir);
       continue;
@@ -82,7 +81,7 @@ const loadPkgData = (apps: ManagerApp[]) => {
     if (pgk?.name) {
       const index = apps.findIndex((app) => app.pkgName === pgk.name);
       if (index === -1) {
-        log.warn('App not found for ' + pgk?.name);
+        // log.debug('App not found for ' + pgk?.name);
         continue;
       }
       // Add more properties here if you need more
@@ -253,9 +252,8 @@ const processConfigs = async (config: ManagerConfig) => {
   // log.debug(`apps: ${JSON.stringify(config.apps, null, 2)}`);
 };
 
-export const loadConfig = async () => {
-  const basePath = resolve(appRoot.path, 'config');
-  const env = process.env.NODE_ENV || 'development';
+export const loadConfig = async (configDir: string, env: string) => {
+  const basePath = resolve(appRoot.path, configDir);
   log.debug(`Load config for "${env}"`);
   const configPath = resolve(basePath, `${env}.ts`);
   let fallbackConfigPath = '';
