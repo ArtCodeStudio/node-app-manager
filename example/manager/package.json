@@ -6,6 +6,6 @@
     "start:prod": "node-app-manager --configDir example/manager/config -- env production"
   },
   "dependencies": {
-    "@artcodestudio/node-app-manager": "workspace:backend"
+    "@artcodestudio/node-app-manager": "workspace:*"
   }
 }
