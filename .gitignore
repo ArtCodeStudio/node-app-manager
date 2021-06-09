@@ -110,3 +110,6 @@ dist
 !.yarn/sdks
 !.yarn/versions
 .pnp.*
+
+# We use the app manager as a submodule in other yarn 2 workspaces, for this we need to remove the yarn.lock
+yarn.lock

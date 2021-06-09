@@ -6,4 +6,5 @@ export interface ManagerConfig {
   redbird: RedbirdOptions;
   apps: ManagerApp[];
   manager: ManagerOptions;
+  environment: string;
 }

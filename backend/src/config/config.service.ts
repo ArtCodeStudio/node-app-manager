@@ -18,6 +18,7 @@ export class CustomConfigService {
         this.log.warn('Config file not found! ' + configPath);
         continue;
       }
+      this.log.debug('Load config: ' + configPath);
       // Transpile typescript config file
       if (configPath.endsWith('.ts')) {
         const tSource = readFileSync(configPath, 'utf8');
@@ -45,7 +46,7 @@ export class CustomConfigService {
     }
     throw new Error(
       'No config file found! Searched for config files: \n' +
-        JSON.stringify(searchConfigPaths, null, 2),
+      JSON.stringify(searchConfigPaths, null, 2),
     );
   }
 }

@@ -170,11 +170,12 @@ const setPorts = async (config: ManagerConfig) => {
 };
 
 const setAppDefaults = (
+  environment: string,
   apps: ManagerApp[],
   defaults: RedbirdRegisterOptions = {},
 ) => {
   let shortEnv = '';
-  switch (process.env.NODE_ENV) {
+  switch (environment) {
     case 'production':
       shortEnv = 'prod';
       break;
@@ -185,7 +186,7 @@ const setAppDefaults = (
       shortEnv = 'local';
       break;
     default:
-      shortEnv = process.env.NODE_ENV;
+      shortEnv = environment;
       break;
   }
 
@@ -243,10 +244,10 @@ const processConfigs = async (config: ManagerConfig) => {
 
   // The manager itself is an app
   loadPkgData([config.manager]);
-  setAppDefaults([config.manager], config.redbird.appDefaults);
+  setAppDefaults(config.environment, [config.manager], config.redbird.appDefaults);
   // All other apps
   loadPkgData(config.apps);
-  setAppDefaults(config.apps, config.redbird.appDefaults);
+  setAppDefaults(config.environment, config.apps, config.redbird.appDefaults);
   validateAppConfigs(config.apps, config.manager);
 
   // log.debug(`apps: ${JSON.stringify(config.apps, null, 2)}`);
@@ -277,6 +278,8 @@ export const loadConfig = async (configDir: string, env: string) => {
     configPath,
     fallbackConfigPath,
   ]);
+
+  config.environment = env;
 
   await processConfigs(config);
   // log.debug(`Config redbird: "${JSON.stringify(config.redbird, null, 2)}"`);

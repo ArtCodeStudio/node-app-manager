@@ -15,7 +15,7 @@ const parseArgs = async () => {
     .option("env", {
       alias: "e",
       type: "string",
-      description: "Enviroment",
+      description: "Environment",
       default: process.env.NODE_ENV || 'development',
     })
     .argv
