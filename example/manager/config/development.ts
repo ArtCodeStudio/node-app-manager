@@ -28,7 +28,8 @@ export const apps: ManagerApp[] = [
       // The app restarts by itself on changes but this is not working fpr new packages, so we also watch the package.json with pm2
       watch: ["package.json", "./.pnp.js"],
       env: {
-        MESSAGE: "App managed by @artcodestudio/node-app-manager in local mode",
+        MESSAGE:
+          "App managed by @artcodestudio/node-app-manager in development mode",
       },
     },
   },
