@@ -26,7 +26,7 @@ export const apps: ManagerApp[] = [
     pm2: {
       script: "yarn workspace @node-app-manager/example-app run watch",
       // The app restarts by itself on changes but this is not working fpr new packages, so we also watch the package.json with pm2
-      watch: ["package.json", "./.pnp.js"],
+      watch: ["package.json", "./.pnp.cjs"],
       env: {
         MESSAGE:
           "App managed by @artcodestudio/node-app-manager in development mode",
