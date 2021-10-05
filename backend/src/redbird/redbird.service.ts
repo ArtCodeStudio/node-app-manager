@@ -1,5 +1,5 @@
 import { Injectable, Logger } from '@nestjs/common';
-import * as Redbird from '@artcodestudio/redbird';
+import Redbird from '@artcodestudio/redbird';
 import { ConfigService } from '@nestjs/config';
 import type { ManagerApp } from '../types/app';
 import type { RedbirdSSL } from './types/ssl';
@@ -8,7 +8,7 @@ import { URL } from 'url';
 
 @Injectable()
 export class RedbirdService {
-  protected proxy: ReturnType<typeof Redbird>;
+  protected proxy: Redbird;
   protected log = new Logger('RedbirdService');
   protected options: RedbirdOptions;
 
