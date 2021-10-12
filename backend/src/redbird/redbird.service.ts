@@ -1,5 +1,5 @@
 import { Injectable, Logger } from '@nestjs/common';
-import Redbird from '@artcodestudio/redbird';
+import Redbird = require('@artcodestudio/redbird');
 import { ConfigService } from '@nestjs/config';
 import type { ManagerApp } from '../types/app';
 import type { RedbirdSSL } from './types/ssl';
